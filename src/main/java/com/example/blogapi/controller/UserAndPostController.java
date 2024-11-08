@@ -70,7 +70,7 @@ public class UserAndPostController {
 
     //Endpoint to create a Post.
     @PostMapping("/create-post")
-    public ResponseEntity<Post> createPost(@RequestBody Post post) { // @Validated triggers validation
+    public ResponseEntity<Post> createPost(@RequestBody Post post) { //
         Optional<Post> createdPostOpt = postService.createPost(post); // Calls the service to create the post
         return createdPostOpt.map(ResponseEntity::ok) // If post is created, return 200 OK with post
                 .orElse(ResponseEntity.badRequest().build()); // If author not found, return 400 Bad Request

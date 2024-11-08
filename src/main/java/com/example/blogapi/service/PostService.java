@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +30,11 @@ public class PostService {
             //Author(User) not found
             return Optional.empty();
         }
+    }
+
+    //Retrieve all posts
+    public List<Post> getAllPosts(){
+        return postRepository.findAll();
     }
 
     //Retrieve post by Id
